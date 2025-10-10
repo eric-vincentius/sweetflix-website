@@ -130,7 +130,7 @@ app.post('/checkout', upload.single('bukti'), async (req, res) => {
 
     console.log('Data inserted with ID:', result.rows[0].id);
 
-    res.redirect('/checkout/success');
+    res.redirect('/checkout-success');
   } catch (err) {
     console.error('Error saving to DB:', err);
     res.status(500).send('Terjadi kesalahan pada server.');

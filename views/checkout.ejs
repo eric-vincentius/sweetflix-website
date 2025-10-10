@@ -1,0 +1,29 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container my-5">
+    <h2 class="mb-4">CHECKOUT</h2>
+
+    <form id="checkoutForm" action="/checkout" method="POST" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="nama" class="form-label">Nama<span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="nama" name="nama" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="whatsapp" class="form-label">Nomor Whatsapp<span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="whatsapp" name="whatsapp" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="alamat" class="form-label">Alamat<span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="alamat" name="alamat" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="bukti" class="form-label">Bukti Pembayaran<span class="text-danger">*</span></label>
+        <input type="file" class="form-control" id="bukti" name="bukti" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Kirim</button>
+    </form>
+  </div>

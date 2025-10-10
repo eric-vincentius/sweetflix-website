@@ -1,0 +1,81 @@
+<%- include('partials/header.ejs') %>
+
+<div>
+  <!-- Hero Section -->
+  <section class="hero bg-warning py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0" id="promo-section">
+          <h1 class="mb-3 fs-3 text-center" style="font-family:'Lucida Fax'">LEBIH DARI 5000 ROTI DAN KUE DIPRODUKSI SETIAP HARINYA</h1>
+          <button class="btn btn-info text-white" style="width:150px">Pesan Sekarang!</button>
+        </div>
+        <div class="col-lg-6">
+          <div class="d-flex gap-3 justify-content-center">
+            <img src="assets/Gambar Bakery.jpg" style="width: 45%; height: 150px;">
+            <img src="assets/Gambar Bakery (2).jpg" style="width: 45%; height: 150px;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outlet Section -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="mb-4" style="font-family:'Lucida Fax'">3 OUTLET DI SURABAYA</h2>
+      <% const outlets = [{
+        name: 'Outlet Genteng Kali',
+        address: 'Jl. Genteng Kali No 30',
+        imgPath: 'assets/Gambar Bakery (3).jpg',
+        imgAlt: 'Outlet 1'
+        }, {
+        name: 'Outlet Ahmad Yani',
+        address: 'Jl. Ahmad Yani No 40',
+        imgPath: 'assets/Gambar Bakery (4).jpg',
+        imgAlt: 'Outlet 2'
+        }, {
+        name: 'Outlet Kenjeran',
+        address: 'Jl. Kenjeran No 204',
+        imgPath: 'assets/Gambar Bakery (5).jpg',
+        imgAlt: 'Outlet 3'
+        }];%>
+
+        <div class="row">
+            <% outlets.forEach(function(data) { %>
+            <%- include('partials/outlet', { data: data }) %>
+        <% }) %>
+        </div>
+    </div>
+  </section>
+
+  <!-- Discount Section -->
+  <section class="py-5 bg-success">
+    <div class="container">
+      <h2 class="fw-bold mb-4" style="font-family:'Lucida Fax'">DISKON TERSEDIA</h2>
+        <% const products = [{
+        name: 'Cinammon Roll',
+        price: ' ̶R̶p̶ ̶1̶5̶.̶0̶0̶0̶    Rp 10.000',
+        imgPath: 'assets/Cinnamon roll.jpg',
+        imgAlt: 'cinammon roll'
+        }, {
+        name: 'Donat',
+        price: ' R̶p̶ ̶7̶.̶0̶0̶0̶    Rp 5.000',
+        imgPath: 'assets/Donat.jpg',
+        imgAlt: 'donat'
+        }, {
+        name: 'Kukis',
+        price: ' ̶R̶p̶ ̶9̶.̶0̶0̶0̶    Rp 7.000',
+        imgPath: 'assets/Kukis.jpg',
+        imgAlt: 'kukis'
+        }];%>
+
+        <div class="row">
+            <% products.forEach(function(data) { %>
+            <%- include('partials/produk', { data: data }) %>
+        <% }) %>
+        </div>
+    </div>
+  </section>
+
+    <%- include('partials/footer.ejs') %>
+</div>

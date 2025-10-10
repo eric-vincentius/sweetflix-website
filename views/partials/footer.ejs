@@ -1,0 +1,88 @@
+<!-- Footer -->
+  <footer class="py-3 bg-dark d-flex align-items-center" style="height:150px">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <div class="text-center text-md-start mb-3 mb-md-0">
+        <p class="mb-0 text-white">Sweetflix<br>Copyright © 2025</p>
+      </div>
+      <div class="footer-right d-flex align-items-center gap-3">
+        <span class="fw-semibold text-white">HUBUNGI KAMI</span>
+        <a href="#"><img src="assets/Logo instagram.png" alt="logo instagram" style="height:30px"></a>
+        <a href="#"><img src="assets/Logo whatsapp.png" alt="logo whatsapp" style="height:30px"></a>
+      </div>
+    </div>
+  </footer>
+ 
+  <script>
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('#navbar');
+        const scrollY = window.scrollY;
+
+        const newOpacity = Math.max(1 - scrollY / 200, 0.6);
+        header.style.opacity = newOpacity;
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('#add-to-cart-btn').forEach(button => {
+      button.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const target = e.currentTarget;
+
+        const item = {
+          name: target.dataset.name,
+          price: target.dataset.price,
+          imgPath: target.dataset.img
+        };
+
+        const res = await fetch('/keranjang/tambah', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(item)
+        });
+
+        if (res.ok) {
+          Swal.fire(`✅ ${item.name} berhasil ditambahkan!`);
+        } else {
+          Swal.fire('❌ Produk gagal ditambahkan.');
+        }
+      });
+    });
+  });
+  
+  const form = document.getElementById('checkoutForm');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); // prevent normal form submission
+
+    const nama = document.getElementById('nama').value.trim();
+    const whatsapp = document.getElementById('whatsapp').value.trim();
+    const alamat = document.getElementById('alamat').value.trim();
+    const bukti = document.getElementById('bukti').files[0];
+
+    if (!nama || !whatsapp || !alamat || !bukti) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Form Belum Lengkap',
+        text: 'Semua field wajib diisi sebelum melanjutkan.',
+        confirmButtonText: 'OK'
+      });
+      return;
+    }
+
+    // If all fields are filled, submit the form normally
+    form.submit();
+  });
+  </script>
+  <script>
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navbar-nav');
+
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+        console.log("Hello");
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

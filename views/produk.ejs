@@ -1,0 +1,59 @@
+<%- include('partials/header.ejs') %>
+
+<div class="mx-3 my-3">
+    <h2 style="font-family:'Lucida Fax'">PRODUK</h2>
+    <% const products = [{
+        name: 'Roti Tawar',
+        price: 'Rp 10.000',
+        imgPath: 'assets/Roti tawar.jpg',
+        imgAlt: 'roti tawar'
+        }, {
+        name: 'Bagette',
+        price: 'Rp 10.000',
+        imgPath: 'assets/Baguette.jpg',
+        imgAlt: 'bagette'
+        }, {
+        name: 'Bomboloni',
+        price: 'Rp 10.000',
+        imgPath: 'assets/Bomboloni.jpg',
+        imgAlt: 'bomboloni'
+        }, {
+        name: 'Cinammon Roll',
+        price: ' ̶R̶p̶ ̶1̶5̶.̶0̶0̶0̶    Rp 10.000',
+        imgPath: 'assets/Cinnamon roll.jpg',
+        imgAlt: 'cinammon roll'
+        }, {
+        name: 'Donat',
+        price: ' R̶p̶ ̶7̶.̶0̶0̶0̶    Rp 5.000',
+        imgPath: 'assets/Donat.jpg',
+        imgAlt: 'donat'
+        }, {
+        name: 'Kue Tart',
+        price: 'Rp 10.000',
+        imgPath: 'assets/Kue tart.jpg',
+        imgAlt: 'kue tart'
+        }, {
+        name: 'Kukis',
+        price: ' ̶R̶p̶ ̶9̶.̶0̶0̶0̶    Rp 7.000',
+        imgPath: 'assets/Kukis.jpg',
+        imgAlt: 'kukis'
+        }, {
+        name: 'Pie Apel',
+        price: 'Rp 10.000',
+        imgPath: 'assets/Pie apel.jpg',
+        imgAlt: 'pie apel'
+        }, {
+        name: 'Pizza',
+        price: 'Rp 10.000',
+        imgPath: 'assets/Pizza.jpg',
+        imgAlt: 'pizza'
+        }];%>
+
+    <div class="row gy-5">
+        <% products.forEach(function(data) { %>
+        <%- include('partials/produk', { data: data }) %>
+        <% }) %>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

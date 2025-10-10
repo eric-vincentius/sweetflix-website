@@ -1,0 +1,29 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container my-5">
+    <h2 class="mb-4">KERANJANG SAYA</h2>
+
+    <% if (cart.length === 0) { %>
+      <p>Keranjang Anda kosong.</p>
+    <% } else { %>
+      <% cart.forEach(function(item, i) { %>
+        <div class="d-flex align-items-center mb-3">
+          <img src="<%= item.imgPath %>" alt="<%= item.name %>" style="width:80px; height:80px; border-radius:10px; margin-right:15px;">
+          <div class="flex-grow-1">
+            <div><strong><%= item.name %></strong></div>
+            <div><%= item.price %></div>
+          </div>
+          <div class="mx-3">X<%= item.quantity || 1 %></div>
+          <form action="/keranjang/hapus" method="POST">
+            <input type="hidden" name="index" value="<%= i %>">
+            <button class="btn btn-danger btn-sm" type="submit">−</button>
+          </form>
+        </div>
+      <% }) %>
+
+      <div class="mt-4">
+        <strong>Total: Rp <%= total.toLocaleString('id-ID') %></strong>
+      </div>
+      <a href="/checkout" class="btn btn-primary mt-3">Checkout</a>
+    <% } %>
+  </div>

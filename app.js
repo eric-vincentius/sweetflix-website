@@ -14,6 +14,8 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const port = 3000;
 
+const { Pool } = pg;
+
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(favicon(path.join(__dirname, 'public', 'Logo Sweetflix.ico')))
@@ -24,12 +26,12 @@ app.use(session({
   saveUninitialized: true
 }));
 
-const db = new pg.Client({
-    user: "postgres",
-    host: "localhost",
-    database: "BakeryShop",
-    port: 5432
-})
+const db = new pg.Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false,
+    },
+});
 db.connect();
 
 app.get('/', (req, res) => {

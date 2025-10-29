@@ -16,7 +16,7 @@ const port = 3000;
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true}));
-app.use(favicon(path.join(__dirname, 'public', 'Logo sweetflix.ico')))
+app.use(favicon(path.join(__dirname, 'public', 'Logo Sweetflix.ico')))
 app.use(express.json());
 app.use(session({
   secret: 'secret-key',

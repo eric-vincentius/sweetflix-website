@@ -26,7 +26,7 @@ app.use(session({
   saveUninitialized: true
 }));
 
-const db = new pg.Pool({
+const db = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: {
         rejectUnauthorized: false,

@@ -26,13 +26,12 @@ app.use(session({
   saveUninitialized: true
 }));
 
-const db = new Pool({
+const db = new pg.Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: {
         rejectUnauthorized: false,
     },
 });
-db.connect();
 
 app.get('/', (req, res) => {
   res.render("beranda.ejs")

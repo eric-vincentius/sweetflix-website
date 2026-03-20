@@ -42,8 +42,10 @@
 
         <div class="row">
             <% outlets.forEach(function(data) { %>
-            <%- include('partials/outlet', { data: data }) %>
-        <% }) %>
+                <div class="col-12 col-sm-6">
+                    <%- include('partials/outlet', { data: data }) %>
+                </div>
+            <% }) %>
         </div>
     </div>
   </section>
@@ -72,11 +74,13 @@
         imgAlt: 'kukis'
         }];%>
 
-        <div class="row">
-            <% products.forEach(function(data) { %>
-            <%- include('partials/produk', { data: data }) %>
-        <% }) %>
-        </div>
+      <div class="row">
+          <% products.forEach(function(data) { %>
+              <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                  <%- include('partials/produk', { data: data }) %>
+              </div>
+          <% }) %>
+      </div>
     </div>
   </section>
 

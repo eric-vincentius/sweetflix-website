@@ -52,11 +52,12 @@
         imgAlt: 'pizza'
         }];%>
 
-    <div class="row gy-5">
-        <% products.forEach(function(data) { %>
-        <%- include('partials/produk', { data: data }) %>
-        <% }) %>
-    </div>
-</div>
+        <div class="row">
+            <% products.forEach(function(data) { %>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                    <%- include('partials/produk', { data: data }) %>
+                </div>
+            <% }) %>
+        </div>
 
 <%- include('partials/footer.ejs') %>

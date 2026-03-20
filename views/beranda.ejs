@@ -40,9 +40,9 @@
         imgAlt: 'Outlet 3'
         }];%>
 
-        <div class="row gx-3 gy-4" style="height:250px">
+        <div class="row gx-3 gy-4">
             <% outlets.forEach(function(data) { %>
-                <div class="col-12 col-sm-6">
+                <div class="col-12 col-sm-6" style="height:250px">
                     <%- include('partials/outlet', { data: data }) %>
                 </div>
             <% }) %>
